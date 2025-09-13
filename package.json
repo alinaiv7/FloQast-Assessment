@@ -1,0 +1,30 @@
+{
+  "name": "floqast-assessment",
+  "version": "1.0.0",
+  "description": "FloQast Assessment Test Automation",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test tests/api-tests/",
+    "test:ui": "playwright test tests/ui-tests/",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report",
+    "dev": "concurrently \"node server.js\" \"npx http-server . -p 3000\"",
+    "start:server": "node server.js",
+    "start:frontend": "npx http-server . -p 3000",
+    "cleanup": "pkill -f 'node server.js' || true && pkill -f 'http-server' || true",
+    "test:clean": "npm run cleanup && npm test",
+    "test:api:clean": "npm run cleanup && npm run test:api"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^20.0.0",
+    "concurrently": "^9.2.1",
+    "http-server": "^14.1.1",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^4.18.2"
+  }
+}
